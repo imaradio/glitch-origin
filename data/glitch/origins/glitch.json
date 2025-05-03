@@ -1,0 +1,18 @@
+{
+    "powers": [
+	    "glitch:rubberbanding",
+	    "glitch:dupe",
+	    "glitch:phantom_blocks",
+	    "glitch:speed_bug",
+	    "glitch:player_desync",
+	    "glitch:temp_debuff",
+	    "glitch:collision_glitch",
+	    "glitch:visual_glitch",
+	    "glitch:ghost_hits"
+    ],
+    "icon": "minecraft:barrier",
+    "order": 69,
+    "impact": 3,
+    "name": "Glitched",
+    "description": "§klol you shouldnt be able to see this, hopefully you cant anyway"
+}

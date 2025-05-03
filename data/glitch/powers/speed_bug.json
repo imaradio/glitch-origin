@@ -1,0 +1,21 @@
+{
+	"type": "origins:action_when_damage_taken",
+	"entity_action": {
+		"type": "origins:chance",
+		"action": {
+			"type": "origins:apply_effect",
+			"effect": {
+				"effect": "minecraft:slowness",
+				"duration": 40,
+				"amplifier": 1,
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": false
+			}
+		},
+		"chance": 0.25
+	},
+	"cooldown": 30,
+	"name": "Speed Bug",
+	"description": "§ksometimes slow after taking damage"
+}

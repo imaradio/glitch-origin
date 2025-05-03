@@ -1,0 +1,24 @@
+{
+	"type": "origins:active_self",
+	"entity_action": {
+		"type": "origins:apply_effect",
+		"effect": {
+			"effect": "minecraft:levitation",
+			"duration": 100,
+			"amplifier": 255,
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": false
+		}
+	},
+	"key": {
+		"key": "key.saveToolbarActivator"
+	},
+	"hud_render": {
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+		"bar_index": "3"
+	},
+	"cooldown": 220,
+	"name": "Phantom Blocks",
+	"description": "§kbro cant fall L bozo"
+}

@@ -1,0 +1,10 @@
+{
+	"type": "origins:attribute",
+	"modifier": {
+		"name": "temp debuff -4 armour",
+		"attribute": "minecraft:generic.armor",
+		"value": -4,
+		"operation": "addition"
+	},
+	"name": "temp armour debuff"
+}

@@ -1,0 +1,215 @@
+{
+	"type": "origins:multiple",
+	"name": "Duplicated Actions",
+	"description": "§kyour actions are sometimes duped and stuffs",
+
+	"active": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_resource",
+					"change": 1
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "*:*_cooldown"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_cooldown",
+			"comparison": "==",
+			"compare_to": 0
+		},
+		"key": { "key": "key.origins.secondary_active" }
+	},
+	
+	"dupe_mine": {
+		"type": "origins:action_on_block_break",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_resource",
+			"change": -1
+		},
+		"block_action": {
+			"type": "origins:choice",
+			"actions": [
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:coal_ore"
+					},
+					"weight": 30
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:deepslate_coal_ore"
+					},
+					"weight": 30
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:iron_ore"
+					},
+					"weight": 25
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:deepslate_iron_ore"
+					},
+					"weight": 25
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:lapis_ore"
+					},
+					"weight": 15
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:deepslate_lapis_ore"
+					},
+					"weight": 15
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:redstone_ore"
+					},
+					"weight": 20
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:deepslate_redstone_ore"
+					},
+					"weight": 20
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:diamond_ore"
+					},
+					"weight": 10
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:deepslate_diamond_ore"
+					},
+					"weight": 10
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:emerald_ore"
+					},
+					"weight": 5
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:deepslate_emerald_ore"
+					},
+					"weight": 5
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:obsidian"
+					},
+					"weight": 10
+				},
+				{
+					"element": {
+						"type": "origins:set_block",
+						"block": "minecraft:ancient_debris"
+					},
+					"weight": 1
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_resource",
+			"comparison": "==",
+			"compare_to": 1
+		},
+		"only_when_harvested": false
+	},
+
+	"dupe_attack": {
+		"type": "origins:modify_damage_dealt",
+		"bientity_condition": {
+			"type": "origins:actor_condition",
+			"condition": {
+				"type": "origins:resource",
+				"resource": "*:*_resource",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		},
+		"self_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_resource",
+			"change": -1
+		},
+		"modifier": {
+			"name": "double damage from dupe power glitch origin",
+			"operation": "multiply_total_multiplicative",
+			"value": 1
+		}
+	},
+
+	"dupe_food": {
+		"type": "origins:modify_food",
+		"food_modifier": {
+			"name": "food *2, glitch origin",
+			"operation": "multiply_total_multiplicative",
+			"value": 1
+		},
+		"saturation_modifier": {
+			"name": "saturation *2, glitch origin",
+			"operation": "multiply_total_multiplicative",
+			"value": 1
+		},
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_resource",
+			"change": -1
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+
+	"cooldown": {
+		"type": "origins:cooldown",
+		"cooldown": 600,
+		"hud_render": {
+			"should_render": true,
+			"bar_index": 3
+		}
+	},
+
+	"resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"hud_render": {
+			"should_render": false
+		}
+	}
+}

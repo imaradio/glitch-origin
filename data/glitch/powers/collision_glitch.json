@@ -1,0 +1,51 @@
+{
+	"type": "origins:multiple",
+	"name": "Collision Glitch",
+	"description": "§kphase after being in a ladder",
+
+	"cooldown": {
+		"type": "origins:cooldown",
+		"cooldown": 60,
+		"hud_render": {
+			"bar_index": 3
+		}
+	},
+
+	"trigger_in_ladder": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:trigger_cooldown",
+			"power": "*:*_cooldown"
+		},
+		"condition": {
+			"type": "origins:in_block",
+			"block_condition": {
+				"type": "origins:block",
+				"block": "minecraft:ladder"
+			}
+		},
+		"interval": 2
+	},
+
+	"phase": {
+		"type": "origins:phasing",
+		"render_type": "blindness",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_cooldown",
+			"comparison": "!=",
+			"compare_to": 0
+		},
+		"phase_down_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:on_block"
+				}
+			]
+		}
+	}
+}
